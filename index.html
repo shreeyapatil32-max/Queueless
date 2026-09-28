@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>QUEUELESS | Digital Queue Management</title>
+
+    <meta name="description"
+          content="QUEUELESS - Digital Queue Management System">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+
+        <div class="nav-container">
+
+            <div class="logo">
+                QUEUE<span>LESS</span>
+            </div>
+
+            <div class="nav-buttons">
+
+                <button id="customerNav"
+                        class="nav-btn active">
+                    Customer
+                </button>
+
+                <button id="adminNav"
+                        class="nav-btn">
+                    Admin
+                </button>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+
+    <main class="container">
+
+        <!-- HERO -->
+        <section class="hero">
+
+            <div class="hero-content">
+
+                <div class="eyebrow">
+                    SMART • REAL-TIME • DIGITAL
+                </div>
+
+                <h1>
+                    Wait Less.
+                    <br>
+                    <span>Know More.</span>
+                </h1>
+
+                <p>
+                    Join a queue digitally, track your position
+                    in real time, and arrive when it is almost
+                    your turn.
+                </p>
+
+            </div>
+
+
+            <div class="hero-card">
+
+                <div class="small-label">
+                    NOW SERVING
+                </div>
+
+                <div id="heroCurrent"
+                     class="hero-token">
+                    A-100
+                </div>
+
+                <div class="hero-sub">
+                    Counter 1 • Live Queue
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= CUSTOMER ================= -->
+
+        <section id="customerView">
+
+            <div class="two-column">
+
+                <!-- JOIN QUEUE -->
+                <div class="card">
+
+                    <h2>
+                        Join a Queue
+                    </h2>
+
+                    <p class="muted">
+                        Choose the service you need.
+                    </p>
+
+                    <label>
+                        Select Service
+                    </label>
+
+                    <select id="service"
+                            class="select">
+
+                        <option>
+                            General Enquiry
+                        </option>
+
+                        <option>
+                            Fees / Accounts
+                        </option>
+
+                        <option>
+                            Admissions
+                        </option>
+
+                        <option>
+                            Documents / Certificates
+                        </option>
+
+                    </select>
+
+                    <button id="joinBtn"
+                            class="btn primary full">
+
+                        🎫 Get My Token
+
+                    </button>
+
+                    <div id="customerMessage"></div>
+
+                </div>
+
+
+                <!-- MY TOKEN -->
+                <div class="card">
+
+                    <div class="small-label">
+                        YOUR TOKEN
+                    </div>
+
+                    <div id="myToken"
+                         class="big-token">
+                        —
+                    </div>
+
+
+                    <div class="stats">
+
+                        <div>
+                            <div class="small-label">
+                                PEOPLE AHEAD
+                            </div>
+
+                            <strong id="ahead">
+                                —
+                            </strong>
+                        </div>
+
+
+                        <div>
+                            <div class="small-label">
+                                WAIT TIME
+                            </div>
+
+                            <strong id="wait">
+                                —
+                            </strong>
+                        </div>
+
+
+                        <div>
+                            <div class="small-label">
+                                STATUS
+                            </div>
+
+                            <strong id="myStatus">
+                                —
+                            </strong>
+                        </div>
+
+                    </div>
+
+
+                    <div id="turnNotice"
+                         class="notice">
+
+                        Join a queue to receive a token.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- LIVE QUEUE -->
+
+            <div class="card queue-card">
+
+                <div class="section-header">
+
+                    <div>
+
+                        <h2>
+                            Live Queue
+                        </h2>
+
+                        <p class="muted">
+                            Real-time queue status.
+                        </p>
+
+                    </div>
+
+                    <span id="queueCount"
+                          class="pill">
+
+                        0 WAITING
+
+                    </span>
+
+                </div>
+
+
+                <div id="customerQueue"></div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= ADMIN ================= -->
+
+        <section id="adminView"
+                 class="hidden">
+
+            <div class="card">
+
+                <div class="section-header">
+
+                    <div>
+
+                        <h2>
+                            Admin Dashboard
+                        </h2>
+
+                        <p class="muted">
+                            Manage Counter 1 and the live queue.
+                        </p>
+
+                    </div>
+
+                    <button id="resetBtn"
+                            class="btn danger">
+
+                        Reset Demo
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- ADMIN STATS -->
+
+            <div class="admin-stats">
+
+                <div class="card">
+
+                    <div class="small-label">
+                        NOW SERVING
+                    </div>
+
+                    <div id="adminCurrent"
+                         class="big-token">
+                        A-100
+                    </div>
+
+                </div>
+
+
+                <div class="card">
+
+                    <div class="small-label">
+                        WAITING
+                    </div>
+
+                    <div id="adminWaiting"
+                         class="big-token">
+                        0
+                    </div>
+
+                </div>
+
+
+                <div class="card">
+
+                    <div class="small-label">
+                        SERVED TODAY
+                    </div>
+
+                    <div id="servedCount"
+                         class="big-token">
+                        0
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- QUEUE CONTROL -->
+
+            <div class="card queue-card">
+
+                <div class="section-header">
+
+                    <div>
+
+                        <h2>
+                            Queue Control
+                        </h2>
+
+                        <p class="muted">
+                            Press Call Next to move the queue.
+                        </p>
+
+                    </div>
+
+
+                    <button id="callNext"
+                            class="btn primary">
+
+                        ▶ Call Next
+
+                    </button>
+
+                </div>
+
+
+                <div id="adminQueue"></div>
+
+
+                <div class="notice">
+
+                    💡 Demo flow:
+
+                    <strong>
+                        Customer → Get Token → Admin →
+                        Call Next → Customer Status Updates
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <!-- HISTORY -->
+
+            <div class="card queue-card">
+
+                <h2>
+                    Recently Served
+                </h2>
+
+                <div id="history"></div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+
+        QUEUELESS • Digital Queue Management System
+
+        <br>
+
+        <span>
+            Wait Less. Know More.
+        </span>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
